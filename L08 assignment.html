@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://unpkg.com/fullpage.js/dist/fullpage.min.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+</head>
+<body>
+<div id="fullpage">
+
+  <div class="section" >
+
+    <h1 class="about" style="text-align: center">About Me</h1>
+    <br><br>
+    <div  style=" display: flex;
+            align-items: center;">
+      <img class="image" src="assets/image.png" style="width: 35%; height: 40%;" />
+      <div style="margin-bottom: 95px;margin-left: 50px; padding-left: 400px">
+        <h2 class="demo">Wei Siang</h2>
+
+        <h3 class="demo">@wei_siang7</h3>
+        <div style="display: flex;font-weight: bold; transform: translateX(-400px)"> I am <div class="age"> 1 </div> years old</div>
+        <h4 class="demo">I am a foreigner student who travel to Singapore to obtain a better  education.</h4>
+        <h4 class="demo">Hobby: Programming, workout, invest, listen Music, watch Videos</h4>
+        <br>
+
+
+
+
+      </div>
+
+    </div>
+
+
+
+
+  </div>
+  <div class="section"  style="justify-content: normal">
+    <div style="height:700px">
+    <h1 style="text-align: center;margin-top: 50px;margin-bottom: 100px" class="contact">Contact</h1>
+    <div style="position: relative;">
+      <div style="position: absolute; top: 0; left: 50px;"class="logo">
+        <img src="assets/image1.png">
+      </div>
+      <div style="position: absolute; top: 0; left: 100px;"class="logo">
+        <img src="assets/image4.png">
+      </div>
+      <div style="position: absolute; top: 0; left: 50px;"class="logo">
+        <img src="assets/image3.png">
+      </div>
+      <div style="position: absolute; top: 0; left: 50px;"class="logo2">
+        <img src="assets/image2.png">
+      </div>
+      <div style="position: absolute;top: 450px;left: 670px;" class="text1">
+        <h2>kangweisiang0@gmail.com</h2>
+      </div>
+      <div style="position: absolute;top: 450px;left: 670px" class="text2">
+        <h2>wei_siang7</h2>
+      </div>
+      <div style="position: absolute;top: 450px;left: 670px" class="text3">
+        <h2>wei siang kang</h2>
+      </div>
+      <div style="position: absolute;top: 450px;left: 670px" class="text4">
+        <h2>93702698</h2>
+      </div>
+    </div>
+
+</div>
+  </div>
+</div>
+
+
+<script src="https://unpkg.com/fullpage.js/dist/fullpage.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+  <script>
+    const { anime } = window;
+
+
+    anime({
+      targets: '.demo',
+      translateX: -400,
+      delay: anime.stagger(100),
+      easing: 'easeInOutQuad',
+      duration: 1000
+    });
+    anime({
+      targets: '.age',
+      innerHTML: [0, 21], //start and end values
+      easing: 'linear',
+      round: 1, //rounds off to zero decimal places
+      duration: 2000
+    });
+    var animation = anime({
+      targets: '.image',
+      rotate:360,
+      scale: 1.5,
+      easing: 'easeInOutExpo',
+      direction: 'alternate',
+      duration: 2000,
+      loop: true,
+      autoplay: false
+    });
+    document.querySelector('.image').onclick = animation.play;
+
+    anime({
+      targets: '.about',
+      color:"red",
+      duration: 5000
+
+    });
+
+
+   var logo1= anime({
+      targets: '.logo',
+      translateX: anime.stagger(350),
+      delay: anime.stagger(100),
+      easing: 'easeInOutQuad',
+      duration: 1000
+    });
+    var logo2=anime({
+      targets: '.logo2',
+      translateX:1100,
+      delay: 400,
+      easing: 'easeInOutQuad',
+      duration: 1000
+    });
+    var text1=anime({
+      targets: '.text1',
+      translateX:-570,
+      translateY:-250,
+      delay: 400,
+      easing: 'easeInOutQuad',
+      duration: 1000
+    });
+    var text2=anime({
+      targets: '.text2',
+      translateX:-170,
+      translateY:-250,
+      delay: 400,
+      easing: 'easeInOutQuad',
+      duration: 1000
+    });
+    var text3=anime({
+      targets: '.text4',
+      translateX:540,
+      translateY:-250,
+      delay: 400,
+      easing: 'easeInOutQuad',
+      duration: 1000
+    });
+    var text4=anime({
+      targets: '.text3',
+      translateX:180,
+      translateY:-250,
+      delay: 400,
+      easing: 'easeInOutQuad',
+      duration: 1000
+    });
+    var contact=anime({
+      targets: '.contact',
+      rotate:360,
+      delay: 400,
+      scale:1.5,
+      easing: 'easeInOutQuad',
+      duration: 1000
+    });
+
+
+
+
+  </script>
+<script>
+
+
+  $(document).ready(function () {
+
+
+
+    $('#fullpage').fullpage({ //initialize
+
+      //set options
+      sectionsColor: ['#03A9F4', '#2ECC71'],
+      navigation: true,
+      navigationPosition: 'right',
+      afterLoad: function (origin, destination, direction) {
+        if (destination.index == 1) { //section 2
+          text1.play();
+          text2.play();
+          text3.play();
+          text4.play();
+          logo1.play();
+          logo2.play();
+          contact.play();
+
+        }
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
